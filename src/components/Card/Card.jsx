@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './card.styles.css';
+import './Card.css';
 
 export const Card = (props) => {
   const { monster } = props;
