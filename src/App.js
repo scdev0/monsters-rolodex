@@ -14,15 +14,15 @@ class App extends React.Component {
     };
   }
 
-  handleChange = (e) => {
-    this.setState({ searchString: e.target.value });
-  };
-
   componentDidMount() {
     fetch('https://jsonplaceholder.typicode.com/users')
       .then((response) => response.json())
       .then((users) => this.setState({ monsters: users }));
   }
+
+  handleChange = (e) => {
+    this.setState({ searchString: e.target.value });
+  };
 
   render() {
     const { monsters, searchString } = this.state;
@@ -32,6 +32,7 @@ class App extends React.Component {
 
     return (
       <div className='App'>
+        <h1>Monsters Rolodex</h1>
         <SearchBox handleChange={this.handleChange} placeholder='search monsters' />
         <CardList monsters={filteredMonsters}></CardList>
       </div>
